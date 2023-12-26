@@ -5,8 +5,6 @@ y_pred=[0,0,0,1,1,1,0,0,1,1]
 print(confusion_matrix(y_true, y_pred))
 print(classification_report(y_true, y_pred))
 
-#여기서부터는 시험범위 아닌 듯!
-
 # BMI=weight/height^2
 # 키를 알 수 없어 몸무게 데이터만으로 고도비만여부를 판정해야 하는 경우
 weight=[58,62,69,73,77,84,88,92,96,104]
@@ -47,10 +45,9 @@ height=[160,163,151,175,178,164,165,193,172,183]
 y_true=[0,0,1,0,0,1,1,0,1,1]
 import numpy as np
 
-# threshold: 임계치
 fpr_list=[]
 tpr_list=[]
-for threshold in np.arange(20, 40, 0.1): # range 함수는 정수로만 증가시킬 수 잇기 때문에 arrange 함수를 사용해 20부터 40까지 0.1 간격으로 촘촘히 증가시킬 수 있음
+for threshold in np.arange(20, 40, 0.1): # range 함수는 정수로만 증가시킬 수 있기 때문에 arrange 함수로 20부터 40까지 0.1 간격으로 촘촘히 증가
     y_pred=[]
     for i in range(10):
             bmi=weight[i]/(height[i]/100)**2 # height는 m 단위로 넣어야 하기 때문에 100으로 나눔
